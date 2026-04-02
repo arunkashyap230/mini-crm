@@ -161,7 +161,7 @@ function Index() {
       </div>
 
       {filteredLeads.length === 0 ? (
-        <p className="no-data">Koi lead nahi mila. Naya add karo!</p>
+        <p className="no-data">Koi lead nahi mila.</p>
       ) : (
         <div className="cards-container">
           {filteredLeads.map(function (lead) {

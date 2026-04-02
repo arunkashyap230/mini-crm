@@ -81,7 +81,7 @@ function LeadForm({ lead, onSave, onClose }) {
     <div className="overlay">
       <div className="modal">
         <div className="modal-header">
-          <h2>{lead ? "Lead Edit Karo" : "Naya Lead Daalo"}</h2>
+          <h2>{lead ? "Lead Edit" : "Lead Form"}</h2>
           <button className="close-btn" onClick={onClose}>
             &times;
           </button>
@@ -192,7 +192,7 @@ function LeadForm({ lead, onSave, onClose }) {
               Cancel
             </button>
             <button type="submit" className="save-btn">
-              {lead ? "Update Karo" : "Lead Daalo"}
+              {lead ? "Update" : "Lead"}
             </button>
           </div>
         </form>
