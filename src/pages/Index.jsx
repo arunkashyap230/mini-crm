@@ -17,7 +17,7 @@ function Index() {
     if (savedData) {
       setLeads(JSON.parse(savedData));
     } else {
-      // api se data lao
+      // api se data
       axios
         .get("https://jsonplaceholde.typicode.com/users")
         .then(function (response) {
