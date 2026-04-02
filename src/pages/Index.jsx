@@ -19,7 +19,7 @@ function Index() {
     } else {
       // api se data
       axios
-        .get("https://jsonplaceholde.typicode.com/users")
+        .get("https://jsonplaceholder.typicode.com/users")
         .then(function (response) {
           let sources = ["Website", "Referral", "LinkedIn", "Other"];
           let statuses = ["New", "Contacted", "Follow-up", "Converted", "Lost"];
