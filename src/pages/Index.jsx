@@ -85,7 +85,7 @@ function Index() {
     [leads, search, filterStatus],
   );
 
-  // lead save hoga
+  // lead save hoga  jb update hoga tb
   function handleSave(data) {
     if (data.id) {
       let updated = leads.map(function (l) {
@@ -103,7 +103,7 @@ function Index() {
     setEditLead(null);
   }
 
-  // lead delete
+  // lead delete ka fnc
   function handleDelete(id) {
     let updated = leads.filter(function (l) {
       return l.id !== id;

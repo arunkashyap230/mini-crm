@@ -1,5 +1,7 @@
 // ye component ek lead ka card dikhata hai
 
+//lead card kesa dikhega
+
 function LeadCard({ lead, onEdit, onDelete }) {
   //jb status ke hisb se tag name aayega
   function tagClass(status) {
