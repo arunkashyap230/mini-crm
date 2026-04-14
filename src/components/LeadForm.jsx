@@ -11,7 +11,7 @@ function LeadForm({ lead, onSave, onClose }) {
   const [notes, setNotes] = useState("");
   const [errors, setErrors] = useState({});
 
-  // edit wala
+  // Edit form
   useEffect(
     function () {
       if (lead) {
@@ -27,28 +27,28 @@ function LeadForm({ lead, onSave, onClose }) {
     [lead],
   );
 
-  // check hoga ki pura data fill hua h ki nhi
+  //Check form for validation all data fill or not
   function checkForm() {
     let err = {};
 
     if (name.trim() === "") {
-      err.name = "Name dalna zaroori hai";
+      err.name = "Enter Name";
     }
 
     if (email.trim() === "") {
-      err.email = "Email dalna zaroori hai";
+      err.email = "Enter Email";
     } else if (!email.includes("@") || !email.includes(".")) {
-      err.email = "Sahi email daalo";
+      err.email = "Proper Email";
     }
 
     if (phone.trim() === "") {
-      err.phone = "Phone dalna zaroori hai";
+      err.phone = "Enter Phone Number";
     } else if (phone.length < 10) {
-      err.phone = "Phone 10 digit ka hona chahiye";
+      err.phone = "Phone Number 10 digit";
     }
 
     if (company.trim() === "") {
-      err.company = "Company dalna zaroori hai";
+      err.company = "Enter Company Name";
     }
 
     setErrors(err);
@@ -76,7 +76,7 @@ function LeadForm({ lead, onSave, onClose }) {
     onSave(data);
   }
 
-  // ye new form hain
+  //New form
   return (
     <div className="overlay">
       <div className="modal">
@@ -95,7 +95,7 @@ function LeadForm({ lead, onSave, onClose }) {
               onChange={function (e) {
                 setName(e.target.value);
               }}
-              placeholder="Naam likho"
+              placeholder="Lead Name"
               className={errors.name ? "error-input" : ""}
             />
             {errors.name && <p className="error-msg">{errors.name}</p>}
@@ -123,7 +123,7 @@ function LeadForm({ lead, onSave, onClose }) {
               onChange={function (e) {
                 setPhone(e.target.value);
               }}
-              placeholder="1234567890"
+              placeholder="976048XXXX"
               className={errors.phone ? "error-input" : ""}
             />
             {errors.phone && <p className="error-msg">{errors.phone}</p>}
@@ -137,7 +137,7 @@ function LeadForm({ lead, onSave, onClose }) {
               onChange={function (e) {
                 setCompany(e.target.value);
               }}
-              placeholder="Company ka naam"
+              placeholder="Enter Company Name"
               className={errors.company ? "error-input" : ""}
             />
             {errors.company && <p className="error-msg">{errors.company}</p>}
@@ -183,7 +183,7 @@ function LeadForm({ lead, onSave, onClose }) {
                 setNotes(e.target.value);
               }}
               rows={2}
-              placeholder="Kuch likhna ho to likho..."
+              placeholder="Note..."
             />
           </div>
 

@@ -1,9 +1,8 @@
-// ye component ek lead ka card dikhata hai
+//This component only one lead data show
 
-//lead card kesa dikhega
+//Lead card
 
 function LeadCard({ lead, onEdit, onDelete }) {
-  //jb status ke hisb se tag name aayega
   function tagClass(status) {
     if (status === "New") return "tag tag-new";
     if (status === "Contacted") return "tag tag-contacted";

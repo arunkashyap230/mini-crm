@@ -10,14 +10,14 @@ function Index() {
   const [showForm, setShowForm] = useState(false);
   const [editLead, setEditLead] = useState(null);
 
-  // jb phli bar page aayega to data aayega or local me save hoga
+  //starting page data load or save in local stroage
   useEffect(function () {
     let savedData = localStorage.getItem("leads");
 
     if (savedData) {
       setLeads(JSON.parse(savedData));
     } else {
-      // api se data
+      // api data
       axios
         .get("https://jsonplaceholder.typicode.com/users")
         .then(function (response) {
@@ -44,12 +44,12 @@ function Index() {
           localStorage.setItem("leads", JSON.stringify(data));
         })
         .catch(function (error) {
-          console.log("Data laane me dikkat aayi:", error);
+          console.log("Data load Error:", error);
         });
     }
   }, []);
 
-  // jb bhi koi lead me change hoga to save ho jayega
+  // any change of lead than save
   useEffect(
     function () {
       if (leads.length > 0) {
@@ -85,7 +85,7 @@ function Index() {
     [leads, search, filterStatus],
   );
 
-  // lead save hoga  jb update hoga tb
+  //when any change lead than update
   function handleSave(data) {
     if (data.id) {
       let updated = leads.map(function (l) {
@@ -103,7 +103,7 @@ function Index() {
     setEditLead(null);
   }
 
-  // lead delete ka fnc
+  // lead delete fnc
   function handleDelete(id) {
     let updated = leads.filter(function (l) {
       return l.id !== id;
@@ -118,7 +118,7 @@ function Index() {
     setShowForm(true);
   }
 
-  // naya lead form
+  // new lead form
   function openAddForm() {
     setEditLead(null);
     setShowForm(true);
@@ -139,7 +139,7 @@ function Index() {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Naam ya company se search karo..."
+          placeholder="Search for company and name..."
           value={search}
           onChange={function (e) {
             setSearch(e.target.value);
@@ -161,7 +161,7 @@ function Index() {
       </div>
 
       {filteredLeads.length === 0 ? (
-        <p className="no-data">Koi lead nahi mila.</p>
+        <p className="no-data">No Lead Data Found.</p>
       ) : (
         <div className="cards-container">
           {filteredLeads.map(function (lead) {
